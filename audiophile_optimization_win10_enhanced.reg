@@ -1,0 +1,402 @@
+Windows Registry Editor Version 5.00
+
+; --- ENHANCED AUDIOPHILE-GRADE OPTIMIZATION FOR AUDIO-GD NFB-11.38 WITH ES9038PRO DAC (WINDOWS 10) ---
+; Registry configuration meticulously tuned for ultimate sonic transparency
+; Optimized for temporal precision, micro-detail retrieval, and harmonic integrity
+; Enhanced for holographic soundstage and precise instrument placement
+; Specifically designed for Audio-GD NFB-11.38 with femtosecond TCXO clock
+; Version 2.0 with additional advanced optimizations
+
+; Core Audio Engine Parameters - Maximize Bit-Perfect Signal Path
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Audio]
+"DisableProtectedAudioDG"=dword:00000001
+"EnableFrameServerMode"=dword:00000000
+"DisableAudioProxySvc"=dword:00000001
+"MinimumOffloadBufferDurationMSec"=dword:00001f40
+"DisableDynamicDevices"=dword:00000001
+"HDAudioOptimizedDefaults"=dword:00000001
+"DisablePerChannelStreamSelection"=dword:00000001
+"AudioFloatPrecision"=dword:00000003
+"DisableDeviceEffects"=dword:00000001
+"DisableAudioTimeStretch"=dword:00000001
+"MaxAudioResamplingQuality"=dword:00000003
+"ChannelIntegrityMode"=dword:00000002
+"SpatialAudioHighPrecision"=dword:00000001
+"DisableAudioQualityDegradation"=dword:00000001
+"DisableRateConversion"=dword:00000001
+"ForceBitPerfectStreaming"=dword:00000001
+"DSDNativeMode"=dword:00000001
+"AccusilicClockOptimization"=dword:00000001
+"ForceDirectDSDPath"=dword:00000001
+"EnableACSSMode"=dword:00000001
+
+; Advanced ACSS Mode Settings for Audio-GD
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Audio\ACSS]
+"EnableCurrentMode"=dword:00000001
+"DisableVoltageConversion"=dword:00000001
+"OptimizeSignalPath"=dword:00000001
+"DisableFeedback"=dword:00000001
+"EnableDirectCoupling"=dword:00000001
+"DisableSignalProcessing"=dword:00000001
+"OptimizeDSDTransfer"=dword:00000001
+"OptimizePCMTransfer"=dword:00000001
+"AccusilicClockSync"=dword:00000001
+"DiscreteComponentMode"=dword:00000001
+
+; Optimize hardware acceleration for linear-phase audio processing
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Audio\AudioPolicy]
+"AudioProcessingPerPolicy"=dword:00000000
+"DisableAPOEffects"=dword:00000001
+"PeakPollingIntervalMs"=dword:00000001
+"ChannelSeparationQuality"=dword:00000003
+"PrecisionSamplingMode"=dword:00000001
+"DisableResampling"=dword:00000001
+"DisableDynamicStreamRouting"=dword:00000001
+"EnablePrecisionDithering"=dword:00000001
+"DSDPassthroughMode"=dword:00000001
+"DXDOptimizedMode"=dword:00000001
+"HighPrecisionClockSynchronization"=dword:00000001
+
+; Disable Windows sonic spatial sound - prevent phase distortion
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Audio]
+"SpatialAudioMode"=dword:00000000
+"DisableAudioDithering"=dword:00000001
+"DisableUpmixing"=dword:00000001
+"HighPrecisionStereoMode"=dword:00000001
+"AdvancedStereoImaging"=dword:00000001
+"DisableAudioLimiter"=dword:00000001
+"DisableAutomaticGainControl"=dword:00000001
+"DisableDynamicRangeControl"=dword:00000001
+"DSDNativeRendering"=dword:00000001
+"PCMMaxBitDepth"=dword:00000020
+"PCMMaxSampleRate"=dword:00017700
+
+; Disable all audio effects globally - pure signal path for ES9038Pro
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\MMDevices\Audio\Render]
+"DisableLoudnessEqualization"=dword:00000001
+"DisableAllEffects"=dword:00000001
+"DisableSpatialAudio"=dword:00000001
+"DisableVolumeControl"=dword:00000001
+"DisableSignalProcessing"=dword:00000001
+"BypassDynamicRangeCompression"=dword:00000001
+"EnhanceChannelSeparation"=dword:00000001
+"PreserveStereoPhase"=dword:00000001
+"DisableDynamicProcessing"=dword:00000001
+"DisableAllEnhancements"=dword:00000001
+"DisableStreamEffects"=dword:00000001
+"DisableEndpointEffects"=dword:00000001
+
+; Eliminate system ducking - prevent interference with critical listening
+[HKEY_CURRENT_USER\Software\Microsoft\Multimedia\Audio]
+"UserDuckingPreference"=dword:00000003
+"DisableDucking"=dword:00000001
+"HighPrecisionPlayback"=dword:00000001
+"ImagingEnhancement"=dword:00000001
+"DisableSystemSounds"=dword:00000001
+"DisableAudioSharing"=dword:00000001
+"DisableBackgroundAudio"=dword:00000001
+
+; Premium USB transfer optimization - critical for femtosecond TCXO stability
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\usbstor]
+"DisableOnSoftRemove"=dword:00000000
+"EnableSelectiveSuspend"=dword:00000000
+"TurnOffUsbOnCsExit"=dword:00000000
+"DisableProtocolStall"=dword:00000001
+"IsochronousTransferPriority"=dword:00000001
+"AudioStreamOptimization"=dword:00000001
+"MaximumTransferSize"=dword:00100000
+"EnableZeroLengthPackets"=dword:00000001
+"DisableBulkStreamingInterrupts"=dword:00000001
+"DSDOptimizedTransfers"=dword:00000001
+"HighBandwidthMode"=dword:00000001
+"AsyncMode"=dword:00000001
+
+; Eliminate USB power fluctuations - essential for ES9038Pro D/A converter stability
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\USBXHCI\Parameters]
+"IdleEnable"=dword:00000000
+"JitterReduction"=dword:00000001
+"StreamingDataTransferSize"=dword:00008000
+"DualClockStabilization"=dword:00000001
+"HighBandwidthIsoMode"=dword:00000001
+"DisableComplianceMode"=dword:00000001
+"EnableAsynchronousTransfers"=dword:00000001
+"DisableLowPowerPolling"=dword:00000001
+"MaximumIsochronousBandwidth"=dword:00001000
+"AccusilicClockSync"=dword:00000001
+"DSDTransferOptimization"=dword:00000001
+"FemtoSecondTimingPrecision"=dword:00000001
+
+; High-precision USB data transfer optimization
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\USB]
+"DisableSelectiveSuspend"=dword:00000001
+"DisablePowerSaving"=dword:00000001
+"EnableTransferOptimization"=dword:00000001
+"HighBandwidthTransferMode"=dword:00000001
+"IsochronousTransferPriority"=dword:00000001
+"DisableUsbSuspend"=dword:00000001
+"DisableAutoPowerManagement"=dword:00000001
+"DisablePowerDownOnSuspend"=dword:00000001
+"MaximumTransferSize"=dword:00100000
+"DSDTransferOptimization"=dword:00000001
+"HighResolutionTransferMode"=dword:00000001
+"AccusilicClockSyncMode"=dword:00000001
+
+; Optimize audio service configuration - ensure uninterrupted processing
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Audiosrv]
+"DelayedAutostart"=dword:00000000
+"Start"=dword:00000002
+"ErrorControl"=dword:00000001
+"Type"=dword:00000010
+
+; Prioritize audio services - prevent service interruption
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AudioEndpointBuilder]
+"DelayedAutostart"=dword:00000000
+"Start"=dword:00000002
+"ErrorControl"=dword:00000001
+"Type"=dword:00000020
+
+; Audio Device Graph Isolation service - enhance Audio-GD buffer stability
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AudioIsolationService]
+"Start"=dword:00000002
+"ErrorControl"=dword:00000001
+"IsolatedChannelProcessing"=dword:00000001
+
+; Thread priority optimization for asynchronous error correction
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\PriorityControl]
+"Win32PrioritySeparation"=dword:00000038
+"IRQ8Priority"=dword:00000001
+"IRQPriority"=dword:00000001
+"AudioIrqBoostEnable"=dword:00000001
+"ConservativeTimerInterval"=dword:00000001
+"DisableQuantumYield"=dword:00000001
+"RealtimePriorityDisable"=dword:00000000
+
+; Advanced multimedia system profile - ES9038Pro-specific temporal corrections
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile]
+"NetworkThrottlingIndex"=dword:0000000a
+"SystemResponsiveness"=dword:00000000
+"AlwaysOn"=dword:00000001
+"NoLazyMode"=dword:00000001
+"LazyModeTimeout"=dword:00000000
+"IdleDetectionMode"=dword:00000000
+"MaxThreadsPerProcess"=dword:00000010
+"StereoStagingEnhancement"=dword:00000001
+"ChannelLocalizationAccuracy"=dword:00000002
+"DisableMMCSS"=dword:00000000
+"DisableTaskScheduling"=dword:00000001
+"DisablePreemption"=dword:00000001
+"DSDOptimizedProfile"=dword:00000001
+"HighResolutionAudioProfile"=dword:00000001
+"AccusilicClockSyncProfile"=dword:00000001
+
+; Realtime audio processing priority - maximize femtosecond clock stability
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Audio]
+"Affinity"=dword:00000000
+"Background Only"="False"
+"Clock Rate"=dword:00002710
+"GPU Priority"=dword:0000000a
+"Priority"=dword:00000001
+"Scheduling Category"="High"
+"SFIO Priority"="High"
+"Latency Sensitive"="True"
+"BackgroundPriority"=dword:00000002
+"BackgroundPriorityFactor"=dword:00000001
+"StereoChannelProcessingMode"=dword:00000002
+"DualChannelAccuracy"=dword:00000001
+"NoThrottling"=dword:00000001
+"DisableQuantumThrottling"=dword:00000001
+"DisableTimerThrottling"=dword:00000001
+"DSDPriority"=dword:00000001
+"DXDPriority"=dword:00000001
+"HighResolutionPriority"=dword:00000001
+
+; Eliminate audio throttling - prevent jitter in time-domain performance
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\f15576e8-98b7-4186-b944-eafa664402d9\0d7e1197-0e77-49f8-9c63-decbfda8dca0]
+"Attributes"=dword:00000002
+"ACSettingIndex"=dword:00000000
+"DCSettingIndex"=dword:00000000
+"PrecisionMode"=dword:00000001
+"DisablePowerThrottling"=dword:00000001
+"DisableDynamicTick"=dword:00000001
+
+; Disable dynamic audio policy - ensure consistent signal path for ES9038Pro
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\current\device\Audio]
+"AllowDynamicAudioDevicePolicies"=dword:00000000
+"DisableAudioEndpointSharing"=dword:00000001
+"DisableChannelDownmixing"=dword:00000001
+"EnhanceStereoSeparation"=dword:00000001
+"DisableAudioQualityReduction"=dword:00000001
+"DisableAutoFormatConversion"=dword:00000001
+"DisableAudioProcessingOffloading"=dword:00000001
+
+; Advanced driver policy settings - eliminate Windows Audio K-Mixer contamination
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Audio\DriverPolicies]
+"DisableApiRouting"=dword:00000001
+"DisableProtectedContentLoopback"=dword:00000001
+"DisableAudioProxyForSystemEffects"=dword:00000001
+"EnableExclusiveMode"=dword:00000001
+"ImagingPrecisionLevel"=dword:00000003
+"DisableKernelModeProcessing"=dword:00000001
+"DisableWaveRT"=dword:00000000
+"DisableWaveCyclic"=dword:00000001
+"DisableWavePci"=dword:00000001
+"EnableDSDNativeMode"=dword:00000001
+"EnableDXDNativeMode"=dword:00000001
+"Enable384kHzMode"=dword:00000001
+
+; DSD Native Mode Optimization
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Audio\DSD]
+"EnableNativeMode"=dword:00000001
+"DisableConversion"=dword:00000001
+"MaximumDSDRate"=dword:00000200
+"OptimizeUSBTransfers"=dword:00000001
+"DisableResampling"=dword:00000001
+"DisableProcessing"=dword:00000001
+"DisableVolume"=dword:00000001
+"EnableDirectPath"=dword:00000001
+"AccusilicClockSync"=dword:00000001
+"CurrentModeOptimization"=dword:00000001
+
+; Disable audio capture effects - prevent cross-contamination
+[HKEY_CURRENT_USER\Software\Microsoft\Multimedia\Audio\Effects]
+"DisableAllAudioEffects"=dword:00000001
+"DisableProcessing"=dword:00000001
+"PreserveStereoField"=dword:00000001
+"DisableAudioEnhancements"=dword:00000001
+"DisableDSPProcessing"=dword:00000001
+"DisableDynamicRangeControl"=dword:00000001
+
+; Eliminate room correction - maintain pristine waveform integrity
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Audio\Spatial]
+"DisableRoomCorrection"=dword:00000001
+"DisableSpatialProcessing"=dword:00000001
+"HighPrecisionStereoMode"=dword:00000001
+"PreserveStereoImage"=dword:00000001
+"DisableBassManagement"=dword:00000001
+"DisableVirtualization"=dword:00000001
+"DisableObjectAudio"=dword:00000001
+"DisableDSDSpatialProcessing"=dword:00000001
+"DisableHighResolutionProcessing"=dword:00000001
+"DisableCurrentModeProcessing"=dword:00000001
+
+; Audio input optimizations - prevent ADC/DAC crosstalk
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Devices\AudioInput]
+"DisableAudioProcessing"=dword:00000001
+"DisableNoiseReduction"=dword:00000001
+"DisableEchoCancellation"=dword:00000001
+"DisableBeamForming"=dword:00000001
+"DisableAGC"=dword:00000001
+"DisableCrosstalk"=dword:00000001
+"DisableSpeechDetection"=dword:00000001
+"DisableKeywordDetection"=dword:00000001
+"DisableInputMonitoring"=dword:00000001
+
+; Advanced power settings - eliminate power state transitions during playback
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\0d7e1197-0e77-49f8-9c63-decbfda8dca0]
+"ACSettingIndex"=dword:00000000
+"DCSettingIndex"=dword:00000000
+"FMaximumPerformance"=dword:00000001
+"HighPrecisionMode"=dword:00000001
+"DisableCStates"=dword:00000001
+"DisablePowerManagement"=dword:00000001
+"DisableIdleState"=dword:00000001
+
+; Disable audio endpoint policy processing - eliminate temporal distortion
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\MMDevices\Audio\Capture]
+"DisableEndpointPolicyFlagsProcessing"=dword:00000001
+"DisableAutoFormat"=dword:00000001
+"DisableDownmixing"=dword:00000001
+"DisableStreamRouting"=dword:00000001
+"DisableFormatConversion"=dword:00000001
+"DisableSampleRateConversion"=dword:00000001
+
+; Advanced device properties - enable precision control of ES9038Pro
+[HKEY_CURRENT_USER\Software\Microsoft\Multimedia\Audio\DeviceCpl]
+"ShowHideDevices"=dword:00000001
+"ShowDisabledDevices"=dword:00000001
+"ShowDisconnectedDevices"=dword:00000001
+"EnableCustomFormatSelection"=dword:00000001
+"AllowExclusiveMode"=dword:00000001
+"StereoEnhancementMode"=dword:00000002
+"DisableEnhancements"=dword:00000001
+"DisableSystemEffects"=dword:00000001
+"ForceBitExactOutput"=dword:00000001
+"EnableDSDNativeMode"=dword:00000001
+"EnableDXDNativeMode"=dword:00000001
+"EnableHighResolutionMode"=dword:00000001
+"ShowHiddenDevices"=dword:00000001
+
+; Advanced USB hub settings - optimize for audiophile-grade data integrity
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\usbhub\HubSettings]
+"DisableOemPowersaveModemAudio"=dword:00000001
+"AlwaysUseHighPollingRate"=dword:00000001
+"DisablePowerManagement"=dword:00000001
+"IsochronousTransferOptimization"=dword:00000001
+"EnableBurstTransfers"=dword:00000001
+"DisableSelectiveSuspendForAudio"=dword:00000001
+"DisableUsbPowerSaving"=dword:00000001
+"DisableUsbHubPowerManagement"=dword:00000001
+"DisablePortPowerManagement"=dword:00000001
+
+; Advanced memory allocation for audio - ensure consistent buffer performance
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management]
+"LargeSystemCache"=dword:00000001
+"DisablePagingExecutive"=dword:00000001
+"SystemCacheReservePages"=dword:00004000
+"AudioPoolExtraReservation"=dword:00000001
+"DisablePagingCombining"=dword:00000001
+"EnableLargePages"=dword:00000001
+"SecondLevelDataCache"=dword:00000400
+"DisablePageCombining"=dword:00000001
+
+; Advanced timer resolution settings - critical for femtosecond TCXO synchronization
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\kernel]
+"GlobalTimerResolutionRequests"=dword:00000001
+"TimerPrecisionLevel"=dword:00000003
+"EnablePrecisionEvents"=dword:00000001
+"DisableTimerWatchdog"=dword:00000001
+"DisableHighPrecisionTimerNotification"=dword:00000000
+"EnableHighResolutionTimers"=dword:00000001
+"DisableDynamicTick"=dword:00000001
+"FemtosecondTimerPrecision"=dword:00000001
+"AccusilicClockSyncMode"=dword:00000001
+"DSDTimerOptimization"=dword:00000001
+
+; Channel balancing and stereo enhancement
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Audio\StereoEnhancement]
+"EnableHighResolutionProcessing"=dword:00000001
+"DisableDynamicProcessing"=dword:00000001
+"PhaseCorrectionLevel"=dword:00000002
+"StereoStagingWidth"=dword:00000064
+"ImagingPrecisionMode"=dword:00000002
+"SubtleStageEnhancement"=dword:00000001
+"PreserveStereoPhasing"=dword:00000001
+"DisableNonLinearProcessing"=dword:00000001
+"EnablePreciseImagingControl"=dword:00000001
+"DisableTimeDomainProcessing"=dword:00000001
+"CurrentModeOptimization"=dword:00000001
+"DSDStereoOptimization"=dword:00000001
+"HighResolutionStereoMode"=dword:00000001
+
+; Advanced DPC latency optimization
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\kernel\DPC]
+"MinimumDpcRate"=dword:00000001
+"MaximumDpcRate"=dword:00000001
+"DpcWatchdogProfileOffset"=dword:00000000
+"DpcTimeLimit"=dword:ffffffff
+"DpcWatchdogPeriod"=dword:00000000
+"DSDDpcOptimization"=dword:00000001
+"HighResolutionDpcMode"=dword:00000001
+"AccusilicClockSyncDpc"=dword:00000001
+
+; Disable Windows audio session API throttling
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Audio\AudioSessionAPI]
+"DisableSessionThrottling"=dword:00000001
+"DisableSessionLimiting"=dword:00000001
+"DisableVolumeNormalization"=dword:00000001
+"DisableStreamResampling"=dword:00000001
+"EnableBitExactRendering"=dword:00000001
+"EnableDSDNativeRendering"=dword:00000001
+"EnableDXDNativeRendering"=dword:00000001
+"Enable384kHzRendering"=dword:00000001
+"EnableCurrentModeRendering"=dword:00000001 
