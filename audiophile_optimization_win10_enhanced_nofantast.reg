@@ -1,0 +1,70 @@
+Windows Registry Editor Version 5.00
+
+; --- AUDIOPHILE-GRADE OPTIMIZATION FOR AUDIO-GD NFB-11.38 WITH ES9038PRO DAC (WINDOWS 10) ---
+; Registry configuration for improved audio quality
+; Optimized for bit-perfect playback and reduced system interference
+; Version 1.0
+
+; Core Audio Engine Parameters
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Audio]
+"DisableProtectedAudioDG"=dword:00000001
+
+; MMDevices Audio Render
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\MMDevices\Audio\Render]
+"DisableAllEffects"=dword:00000001
+
+; User Audio Settings
+[HKEY_CURRENT_USER\Software\Microsoft\Multimedia\Audio]
+"UserDuckingPreference"=dword:00000003
+
+; USB Storage Settings
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\usbstor]
+"DisableOnSoftRemove"=dword:00000000
+"EnableSelectiveSuspend"=dword:00000000
+"TurnOffUsbOnCsExit"=dword:00000000
+
+; USB Host Controller Settings
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\USBXHCI\Parameters]
+"IdleEnable"=dword:00000000
+
+; USB Service Settings
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\USB]
+"DisableSelectiveSuspend"=dword:00000001
+
+; Audio Service Configuration
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Audiosrv]
+"DelayedAutostart"=dword:00000000
+"Start"=dword:00000002
+
+; Audio Endpoint Builder Service
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AudioEndpointBuilder]
+"DelayedAutostart"=dword:00000000
+"Start"=dword:00000002
+
+; Priority Control
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\PriorityControl]
+"Win32PrioritySeparation"=dword:00000038
+
+; Multimedia System Profile
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile]
+"NetworkThrottlingIndex"=dword:0000000a
+"SystemResponsiveness"=dword:00000000
+
+; Audio Task Settings
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Audio]
+"Background Only"="False"
+"Clock Rate"=dword:00002710
+"GPU Priority"=dword:0000000a
+"Priority"=dword:00000001
+"Scheduling Category"="High"
+"SFIO Priority"="High"
+
+; Power Settings
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\0d7e1197-0e77-49f8-9c63-decbfda8dca0]
+"Attributes"=dword:00000002
+"ACSettingIndex"=dword:00000000
+"DCSettingIndex"=dword:00000000
+
+; Session Manager Memory Management
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management]
+"LargeSystemCache"=dword:00000001 
