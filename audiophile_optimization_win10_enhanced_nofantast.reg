@@ -12,6 +12,8 @@ Windows Registry Editor Version 5.00
 ; MMDevices Audio Render
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\MMDevices\Audio\Render]
 "DisableAllEffects"=dword:00000001
+"AllowExclusiveMode"=dword:00000001
+"ExclusiveModeDefaultFormat"=dword:00000001
 
 ; User Audio Settings
 [HKEY_CURRENT_USER\Software\Microsoft\Multimedia\Audio]
@@ -54,7 +56,7 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Audio]
 "Background Only"="False"
 "Clock Rate"=dword:00002710
-"GPU Priority"=dword:0000000a
+"GPU Priority"=dword:00000001
 "Priority"=dword:00000001
 "Scheduling Category"="High"
 "SFIO Priority"="High"
@@ -67,4 +69,12 @@ Windows Registry Editor Version 5.00
 
 ; Session Manager Memory Management
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management]
-"LargeSystemCache"=dword:00000001 
+"LargeSystemCache"=dword:00000001
+
+; Prevent USB power saving
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\USB]
+"DisableSelectiveSuspend"=dword:00000001
+
+; Prevent USB Root Hub from sleeping
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\USBHUB3\Parameters]
+"DisableSelectiveSuspend"=dword:00000001 
