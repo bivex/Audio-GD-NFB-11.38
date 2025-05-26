@@ -1,0 +1,233 @@
+Windows Registry Editor Version 5.00
+
+; ==============================================================================
+; AUDIOPHILE OPTIMIZATION FOR TOPPING E30 II DAC + MARSHALL STANMORE
+; ==============================================================================
+; Version 2.1 - Optimized for USB DAC + Active Speaker Setup
+; Focuses on clean digital signal to DAC and reduced system interference
+; 
+; IMPORTANT: Create a system restore point before applying
+; Restart required after implementation
+; ==============================================================================
+
+; ------------------------------------------------------------------------------
+; CORE AUDIO ENGINE - TOPPING E30 II SPECIFIC
+; ------------------------------------------------------------------------------
+
+; Disable Protected Audio Path for bit-perfect output to DAC
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Audio]
+"DisableProtectedAudioDG"=dword:00000001
+"DisableProtectedOutput"=dword:00000001
+
+; Enhanced MMDevices Configuration for USB DAC
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\MMDevices\Audio\Render]
+"DisableAllEffects"=dword:00000001
+"AllowExclusiveMode"=dword:00000001
+"ExclusiveModeDefaultFormat"=dword:00000001
+"DisableProtectedOutput"=dword:00000001
+"EnableDolbyDigitalPassthrough"=dword:00000000
+
+; Disable ALL Windows Audio Enhancements (critical for external DAC)
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Audio\AudioEnhancements]
+"EnableEffects"=dword:00000000
+"DisableBassBoost"=dword:00000001
+"DisableVirtualSurround"=dword:00000001
+"DisableRoomCorrection"=dword:00000001
+
+; ------------------------------------------------------------------------------
+; USB AUDIO INTERFACE OPTIMIZATION FOR E30 II
+; ------------------------------------------------------------------------------
+
+; USB Storage and Power Management (prevent dropouts)
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\usbstor]
+"DisableOnSoftRemove"=dword:00000000
+"EnableSelectiveSuspend"=dword:00000000
+"TurnOffUsbOnCsExit"=dword:00000000
+
+; USB 2.0 Host Controller (E30 II uses USB 2.0)
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\USBEHCI\Parameters]
+"IdleEnable"=dword:00000000
+"SelectiveSuspendEnabled"=dword:00000000
+"DisableSelectiveSuspend"=dword:00000001
+
+; USB 3.0 Host Controller (for future compatibility)
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\USBXHCI\Parameters]
+"IdleEnable"=dword:00000000
+"SelectiveSuspendEnabled"=dword:00000000
+"AllowIdleIrpInD3"=dword:00000000
+
+; USB Service Global Settings
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\USB]
+"DisableSelectiveSuspend"=dword:00000001
+
+; USB Hub Power Management
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\USBHUB3\Parameters]
+"DisableSelectiveSuspend"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\USBHUB\Parameters]
+"DisableSelectiveSuspend"=dword:00000001
+
+; USB Audio Class Driver Optimization
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\usbaudio\Parameters]
+"DisableSelectiveSuspend"=dword:00000001
+
+; ------------------------------------------------------------------------------
+; WASAPI AND USER AUDIO SETTINGS
+; ------------------------------------------------------------------------------
+
+; User Audio Preferences (disable ducking for music listening)
+[HKEY_CURRENT_USER\Software\Microsoft\Multimedia\Audio]
+"UserDuckingPreference"=dword:00000003
+
+; Disable Windows Audio Session API interference
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Audio\AudioSession]
+"DisableProtectedAudioDG"=dword:00000001
+
+; Communications Audio Ducking (disable completely)
+[HKEY_CURRENT_USER\Software\Microsoft\Multimedia\Audio]
+"UserDuckingPreference"=dword:00000003
+
+; ------------------------------------------------------------------------------
+; AUDIO SERVICES CONFIGURATION
+; ------------------------------------------------------------------------------
+
+; Windows Audio Service (immediate start)
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Audiosrv]
+"DelayedAutostart"=dword:00000000
+"Start"=dword:00000002
+
+; Audio Endpoint Builder Service
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AudioEndpointBuilder]
+"DelayedAutostart"=dword:00000000
+"Start"=dword:00000002
+
+; Windows Audio Session Manager
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AudioSes]
+"Start"=dword:00000002
+
+; ------------------------------------------------------------------------------
+; SYSTEM PERFORMANCE - OPTIMIZED FOR DAC/ACTIVE SPEAKER SETUP
+; ------------------------------------------------------------------------------
+
+; CPU Scheduling (balanced for music playback)
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\PriorityControl]
+"Win32PrioritySeparation"=dword:00000026
+
+; Multimedia System Profile
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile]
+"NetworkThrottlingIndex"=dword:ffffffff
+"SystemResponsiveness"=dword:00000010
+"NoLazyMode"=dword:00000001
+
+; High-Quality Audio Task Profile
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Audio]
+"Affinity"=dword:00000000
+"Background Only"="False"
+"BackgroundPriority"=dword:00000001
+"Clock Rate"=dword:00002710
+"GPU Priority"=dword:00000002
+"Priority"=dword:00000006
+"Scheduling Category"="High"
+"SFIO Priority"="High"
+
+; Pro Audio Profile for Critical Listening
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Pro Audio]
+"Affinity"=dword:00000000
+"Background Only"="False"
+"BackgroundPriority"=dword:00000001
+"Clock Rate"=dword:00002710
+"GPU Priority"=dword:00000001
+"Priority"=dword:00000001
+"Scheduling Category"="High"
+"SFIO Priority"="High"
+
+; ------------------------------------------------------------------------------
+; POWER MANAGEMENT - PREVENT USB AUDIO DROPOUTS
+; ------------------------------------------------------------------------------
+
+; USB Selective Suspend (completely disabled)
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\2a737441-1930-4402-8d77-b2bebba308a3\48e6b7a6-50f5-4782-a5d4-53bb8f07e226]
+"Attributes"=dword:00000002
+"ACSettingIndex"=dword:00000000
+"DCSettingIndex"=dword:00000000
+
+; Processor Power Management - Minimum State (prevent CPU throttling during playback)
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\893dee8e-2bef-41e0-89c6-b55d0929964c]
+"Attributes"=dword:00000002
+"ACSettingIndex"=dword:00000050
+"DCSettingIndex"=dword:00000020
+
+; PCI Express Link State Power Management (disable for audio interfaces)
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\501a4d13-42af-4429-9fd1-a8218c268e20\ee12f906-d277-404b-b6da-e5fa1a576df5]
+"Attributes"=dword:00000002
+"ACSettingIndex"=dword:00000000
+"DCSettingIndex"=dword:00000000
+
+; ------------------------------------------------------------------------------
+; MEMORY AND CACHE OPTIMIZATION
+; ------------------------------------------------------------------------------
+
+; Memory Management (optimized for streaming audio)
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management]
+"LargeSystemCache"=dword:00000000
+"DisablePagingExecutive"=dword:00000001
+"ClearPageFileAtShutdown"=dword:00000000
+
+; ------------------------------------------------------------------------------
+; TIMER RESOLUTION FOR AUDIO PRECISION
+; ------------------------------------------------------------------------------
+
+; High Resolution Timer Support
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\kernel]
+"GlobalTimerResolutionRequests"=dword:00000001
+
+; Multimedia Timer Resolution
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile]
+"SystemAudioEngineResponseTime"=dword:00000001
+
+; ------------------------------------------------------------------------------
+; DISABLE UNNECESSARY AUDIO PROCESSING
+; ------------------------------------------------------------------------------
+
+; Disable Windows Sonic and Spatial Audio
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\GameDVR]
+"AudioCaptureEnabled"=dword:00000000
+"GameDVR_Enabled"=dword:00000000
+
+; Disable Audio Processing Objects (APOs)
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Audio\Apo]
+"DisableGlobalEffects"=dword:00000001
+
+; Disable Exclusive Mode Timeout (allows apps to keep exclusive control)
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Audio]
+"ExclusiveModeTimeout"=dword:00000000
+
+; ------------------------------------------------------------------------------
+; TOPPING E30 II SPECIFIC OPTIMIZATIONS
+; ------------------------------------------------------------------------------
+
+; Optimize for 32-bit/384kHz capability of E30 II
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Audio]
+"MaximumSampleRate"=dword:0005dc00
+"MaximumBitDepth"=dword:00000020
+
+; DSD Support (E30 II supports DSD via DoP)
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Audio]
+"EnableDSDSupport"=dword:00000001
+
+; ==============================================================================
+; ADDITIONAL RECOMMENDATIONS FOR YOUR SETUP:
+; ==============================================================================
+; 
+; 1. Set Topping E30 II as default playback device in Windows Sound settings
+; 2. In Sound Control Panel > E30 II Properties > Advanced:
+;    - Set to highest quality format (24-bit, 96kHz or higher)
+;    - Uncheck "Allow applications to take exclusive control" if you want 
+;      system sounds, or check it for bit-perfect playback only
+; 3. Disable all enhancements in the Enhancements tab
+; 4. Use WASAPI Exclusive or ASIO drivers in your music player software
+; 5. Consider using dedicated music software like Foobar2000, JRiver, or MusicBee
+; 6. Keep USB cable short (under 1.5m) and use quality shielded cable
+; 7. Marshall Stanmore EQ should be set flat initially, then adjust to taste
+;
+; ==============================================================================
